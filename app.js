@@ -11,17 +11,14 @@ function errorhandler (){
     alert("Server have some issue please try again after sometime")
 }
 
-
-
 function clickhandler(){
- var inputText = txtInput.value;
-fetch(getTranslationURL(inputText))
-.then(response => response.json())
-.then(json=>{
-    var translatedText = json.contents.translated;
-    outputDiv.innetText=translatedText;
-})
- .catch(errorhandler)
-
+    var inputText = txtInput.value;
+    fetch(getTranslationURL(inputText))
+    .then (response=> response.json())
+    .then(json=>{
+        var translatedText = json.contents.translated;
+        outputDiv.innerText=translatedText;
+    })
+    .catch(errorhandler)
 };
-btnTranslate.addEventListener("click",clickhandler)
+btnTranslate.addEventListener("click", clickhandler);
